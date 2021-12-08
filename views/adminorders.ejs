@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script defer src="http://localhost:3200/socket.io/socket.io.js"></script>
+<script src="/js/admin.js" defer></script>
+</head>
+<body>
+  
+
+
+
+
+
+
+<nav class="navbar">
+
+       
+    <div class="nav-container">
+        <div class="logo">
+      <a href="/"> <img src="/images/logo.png" alt="logo"></a> 
+    </div> 
+    <div class="navlist">
+        <ul>
+            
+            <% if(currentUser){%>
+                <li><a href="/#menu">Menu</a></li>
+            <li><a href="#">Offers</a></li>
+           
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+           <% } else {%>
+            <li><a href="/#menu">Menu</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">login</a></li>
+            <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+           <%}%>
+
+        </ul>
+    </div>
+       
+
+    </div>
+</nav>
+    
+
+
+<section class="orders light-section">
+    <div class="container mx-auto pt-12">
+        <h1 class="font-bold  mb-4" style="font-size: 25px;">All orders</h1>
+        <table class="w-full table-auto bg-white mt-10">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 text-left">Orders</th>
+                    <th class="px-4 py-2 text-left">Customer</th>
+                    <th class="px-4 py-2 text-left">Address</th>
+                    <th class="px-4 py-2 text-left">Phone</th>
+                    <th class="px-4 py-2 text-left">status</th>
+                    <th class="px-4 py-2 text-left">Placed at</th>
+                   
+                </tr>
+            </thead>
+            <tbody id="orderTableBody">
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

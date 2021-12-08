@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/stylesheets/order.css">
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> 
+<script src="https://kit.fontawesome.com/845b7f6704.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <script src="/js/app.js" defer></script>
+
+</head>
+<body>
+    <nav class="navbar">
+
+       
+        <div class="nav-container">
+            <div class="logo">
+          <a href="/"> <img src="/images/logo.png" alt="logo"></a> 
+        </div> 
+        <div class="navlist">
+            <ul>
+                
+                <% if(currentUser){%>
+                    <li><a href="/#menu">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+               
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+               <% } else {%>
+                <li><a href="/#menu">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">login</a></li>
+                <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+               <%}%>
+
+            </ul>
+        </div>
+           
+
+        </div>
+    </nav>
+    <section class="orders">
+        <h1 style="margin-top: 10px; text-align: center; font-size: 30px;">My Orders</h1>
+
+
+        <% if(success_msg && success_msg!=''){%>
+        <p id="msgs" style="background: rgb(10, 255, 10); color: white; padding: 10px 10px ; font-size: 20px; border-radius: 9px; margin-top: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; width: 30%; margin-left: 140px;">
+            <i class="far fa-check-circle"></i>
+            <%=success_msg%></p>
+        <% } %>
+       
+        <table id="customers">
+            <tr>
+              <th>Order Id</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>Time</th>
+            </tr>
+            <% orderss.forEach((ord)=>{%>
+                <tr>
+                    <td ><a style="color: #FE5F1E;" href="/orderstatus/<%=ord.id%>"><%=ord.id%></a></td>
+                    <td><%=ord.phone%></td>
+                    <td><%=ord.address%></td>
+                    <td>
+                        <%=moment(ord.createdAt).format('hh:mm A')%>
+                  </td>
+                  </tr>
+                  
+          <%  })%>
+           
+           
+              
+             
+           
+          </table>
+    </section>
+
+    </body>
+    </html>

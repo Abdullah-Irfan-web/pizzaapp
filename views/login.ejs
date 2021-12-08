@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="/js/cart.js"></script>
+    <script src="https://kit.fontawesome.com/845b7f6704.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+    <nav class="navbar">
+
+       
+        <div class="nav-container">
+            <div class="logo">
+              <a href="/"> <img src="/images/logo.png" alt="logo"></a> 
+        </div> 
+        <div class="navlist">
+            <ul>
+                <li><a href="/#">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+            </ul>
+        </div>
+           
+
+        </div>
+    </nav>
+
+    <section class="login">
+        <div class="log">
+            <form method="POST" action="/login" id="login-form" class="login-form">
+              <%if(success_msg){%>
+                <span style="color: #FE5F1E; font-weight: bold; margin-bottom: 5px;"><%=success_msg%></span>
+             <% }else if(error_msg){%>
+              <span style="color: #FE5F1E; font-weight: bold; margin-bottom: 5px;"><%=error_msg%></span>
+             <%}%>
+
+              <h1 class="a11y-hidden">Login Form</h1>
+                <div>
+                  <label class="label-email">
+                    <input type="email" class="text" name="email" placeholder="Email" required />
+                    <span class="required">Email</span>
+                  </label>
+                </div>
+                <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password" tabindex="3" />
+                <label class="label-show-password" for="show-password">
+                  <span>Show Password</span>
+                </label>
+                <div>
+                  <label class="label-password">
+                    <input type="password" class="pass" name="password" placeholder="Password"  required />
+                    <span class="required">Password</span>
+                  </label>
+                </div>
+                <button type="submit" >Login</button> 
+                <div class="email">
+                  <a href="#">Forgot password?</a>
+                </div>
+                <figure aria-hidden="true">
+                  <div class="person-body"></div>
+                  <div class="neck skin"></div>
+                  <div class="head skin">
+                    <div class="eyes"></div>
+                    <div class="mouth"></div>
+                  </div>
+                  <div class="hair"></div>
+                  <div class="ears"></div>
+                  <div class="shirt-1"></div>
+                  <div class="shirt-2"></div>
+                </figure>
+              </form>
+                          
+        </div>
+       
+
+    </section>
+
+</body>
+</html>

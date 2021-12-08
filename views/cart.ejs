@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/cart.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+
+       
+        <div class="nav-container">
+            <div class="logo">
+          <a href="/"> <img src="/images/logo.png" alt="logo"></a> 
+        </div> 
+        <div class="navlist">
+            <ul>
+                
+                <% if(currentUser){%>
+                    <li><a href="/#menu">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+               
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+               <% } else {%>
+                <li><a href="/#menu">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">login</a></li>
+                <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+               <%}%>
+
+            </ul>
+        </div>
+           
+
+        </div>
+    </nav>
+        
+    
+    
+    
+    <section class="cart">
+
+
+            <% if(pizzas!=""){%>
+                    
+<div class="ordersummary">
+    <img src="/images/cart-black.png" alt="">
+    <h1 style="padding-left: 30px; font-weight: bold; font-size: 27px;" >Order Summary</h1>
+</div>
+
+    <div class="pizzalist">
+      
+       <% pizzas.forEach((cartpizza)=>{%>
+        <div class="pizzaorder">
+            <img src="/images/pizza.png" width="10%" alt="">
+            <div class="space" >
+            <div style="margin-top: 40px; margin-left: 15px;">
+                
+                <span style="font-size: 17px;"><%=cartpizza.name%></span> <br>
+            <span style="font-size: 17px;"><%=cartpizza.size%></span>
+            </div>
+           
+            <div style="margin-top: 40px;"><%=cartpizza.quantity%> Pcs</div>
+            <div style="font-weight: bold; font-size: 20px; margin-top: 40px; ">₹<%=cartpizza.price%></div>
+            <div style="font-weight: bold; font-size: 20px; margin-top: 35px; margin-right: 50px;" ><a class="orderbt"  href="/remove/<%=cartpizza.id%>">
+                Remove
+            </a></div>
+        </div>
+        </div>
+        <%totalprice=totalprice+cartpizza.price%>
+      <%  })%>
+        
+       
+        <hr style="margin-top: 30px; width:57% ;margin-left: 330px;">
+        <div class="total" >
+            <span  style="font-size: 26px;">Total Amount:</span>
+            <span style=" font-family: 'Lato', sans-serif; font-weight: bold ; font-size: 28px;">₹<%=totalprice%></span>
+        </div>
+
+        <%if(currentUser){%>
+            <div class="orderbtn">
+                <a href="/orderplace" class="order">Place Order</a>
+            </div>
+       <% } else {%>
+        <div class="orderbtn">
+            <a href="/login" class="order">Login To Place Order</a>
+        </div>
+        <%}%>
+    </div>
+    
+
+
+
+   
+
+           <% } else{ %>
+        
+        
+
+
+
+    <div class="wrapper">
+        <h1 style="text-align: center; font-size: 33px; font-weight: bold;">Cart Empty😐</h1>
+        <p style="color: gray; margin-top: 15px; text-align: center; font-size: 20px;">You Probably haven't ordered a pizza yet. <br>To order a pizza go to the main page</p>
+
+        <img class="empcart" src="/images/empty-cart.png" alt="">
+        <div class="orderbtn">
+            <a href="/" class="order">Go Back</a>
+        </div>
+        
+    </div>
+    <%}%>
+
+
+
+
+
+    </section> 
+    </body>
+    </html>

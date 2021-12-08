@@ -1,0 +1,42 @@
+input[type=text], select, textarea,#em{
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  .order{
+    color:white;
+    background:#FE5F1E ;
+    border-radius: 14px;
+    padding: 7px 12px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.7s;
+    border: 2px solid #FE5F1E;
+    margin-top: 20px;
+   
+}
+.details{
+  background: #F8F8F8;
+
+  
+}
+.det{
+  margin-left: 200px;
+  padding-top: 20px;
+  padding-bottom:20px ;
+}
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }

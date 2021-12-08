@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/orderplace.css">
+    
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/cart.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+
+       
+        <div class="nav-container">
+            <div class="logo">
+          <a href="/"> <img src="/images/logo.png" alt="logo"></a> 
+        </div> 
+        <div class="navlist">
+            <ul>
+                
+                <% if(currentUser){%>
+                    <li><a href="/#menu">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+               
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+               <% } else {%>
+                <li><a href="/#menu">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">login</a></li>
+                <li><a href="/cart"><img class="cart" src="/images/cart.png" alt=""></a></li>
+               <%}%>
+
+            </ul>
+        </div>
+           
+
+        </div>
+    </nav>
+    <section class="details">
+    <div class="text-center lg:w-2/3 w-full det">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 storename">Fill Your Details Here
+        </h1>
+        <div class="container">
+            <form action="/ordernow" method="POST">
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Name</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="fname" name="name" value="<%=currentUser.name%>" placeholder="Your name..">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="em">Email</label>
+                </div>
+                <div class="col-75">
+                    <input type="email" id="em" name="email" value="<%=currentUser.email%>" placeholder="Your Email..">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="num">Phone Number</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="num" name="phone" placeholder="Your Phone number..">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="subject">Address</label>
+                </div>
+                <div class="col-75">
+                  <textarea id="address" name="address" placeholder="Your billing Address here..." style="height:200px"></textarea>
+                </div>
+              </div>
+             
+             
+              <div class="flex justify-center">
+                <button type="submit"  class="order"
+                   >Order Now</button>
+               
+            </div>
+            </form>
+          </div> 
+          </div>
+        </section>
+    </body>
+    </html>

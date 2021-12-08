@@ -1,0 +1,122 @@
+
+
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    font-family:'Lato', sans-serif ;
+    
+}
+.navbar{
+    background: rgb(255, 255, 255);
+}
+.nav-container{
+    display:flex;
+    justify-content: space-between;
+   
+    height: 13vh;
+}
+
+.navlist ul{
+    display: flex;
+}
+ul li{
+    list-style: none;   
+    padding: 29px 10px;
+}
+
+ul li a{
+    color: black;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+}
+ul li a:hover{
+    color: #FE5F1E;
+}
+html{
+    scroll-behavior: smooth;
+}
+a .cart{
+    background: #FE5F1E;
+    margin-right: 20px;
+    padding: 3px 10px;
+    border: 2px solid #FE5F1E;
+    border-radius: 38%;
+    margin-top: -5px;
+  
+}
+.logo{
+    margin: 18px 35px;
+}
+.order{
+    color:white;
+    background:#FE5F1E ;
+    border-radius: 14px;
+    padding: 7px 12px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.7s;
+    border: 2px solid #FE5F1E;
+    margin-top: 20px;
+   
+}
+.orderbt{
+    color:white;
+    background:#FE5F1E ;
+    border-radius: 14px;
+    padding: 7px 7px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: all 0.7s;
+    border: 2px solid #FE5F1E;
+    margin-top: 20px;
+}
+.orderbt:hover{
+    background: white;
+    color:#FE5F1E ;
+}
+.order:hover{
+    background: white;
+    color:#FE5F1E ;
+}
+.orderbtn{
+    margin-top: 27px;
+    text-align: center;
+}
+.empcart{
+    width: 37%;
+    margin-top: 60px;
+    margin-left: 390px;
+}
+.cart{
+    padding: 40px 0;
+    background: #F8F8F8;
+}
+
+.ordersummary{
+    display: flex;
+    border-bottom: 2px solid gray;
+    width: 57%;
+    margin-left: 330px;
+    padding: 12px 5px;
+}
+.pizzaorder{
+    display: flex;
+    margin-left: 15%;
+    margin-top: 30px;
+
+    
+}
+.space{
+    display: flex;
+    width: 100%;
+   justify-content: space-between;
+}
+
+.total{
+   
+    margin-top: 20px;
+    margin-left: 900px;
+}
